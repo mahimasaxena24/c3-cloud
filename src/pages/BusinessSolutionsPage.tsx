@@ -1,0 +1,23 @@
+import { Calculator, BookUser, LayoutGrid, Users, ArrowRight, Cloud, Building2, Laptop } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import PageHero from '@/components/PageHero';
+import SectionHeading from '@/components/SectionHeading';
+import Reveal from '@/components/Reveal';
+import FinalCTA from '@/components/FinalCTA';
+
+const SOLUTIONS = [
+  { icon: Calculator, title: 'Tally on Cloud', desc: 'Access Tally securely from anywhere with cloud infrastructure built for business teams.' },
+  { icon: BookUser, title: 'BUSY on Cloud', desc: 'Cloud-based accounting infrastructure for teams that need dependable remote access.' },
+  { icon: LayoutGrid, title: 'Marg ERP on Cloud', desc: 'Secure remote access to ERP workloads with a practical infrastructure foundation.' },
+  { icon: Building2, title: 'ERP Implementation & Hosting', desc: 'Infrastructure and hosting for business applications from deployment through day-to-day use.' },
+  { icon: Users, title: 'CRM Solutions', desc: 'CRM infrastructure and solutions for growing businesses and distributed teams.' },
+];
+
+export default function BusinessSolutionsPage() {
+  return <>
+    <PageHero eyebrow="Business Solutions" title="Work From Anywhere Without Moving Your Business" description="Keep your applications, accounting and business workflows available to the people who need them, wherever they work."><Link to="/contact" className="btn-blue mt-8">Move Your Business Applications to Cloud <ArrowRight className="h-4 w-4" /></Link></PageHero>
+    <section className="section-pad bg-white"><div className="container-base"><SectionHeading eyebrow="Business Applications" title="The tools your business depends on, hosted for access anywhere" description="C3 Cloud combines business application hosting with secure access and infrastructure support." /><div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{SOLUTIONS.map((solution, i) => <Reveal key={solution.title} delay={i * 70}><div className="group h-full rounded-2xl border border-navy-100 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-navy-900/5"><span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-50 text-navy-700 transition-colors group-hover:bg-navy-900 group-hover:text-blue-400"><solution.icon className="h-6 w-6" /></span><h3 className="mt-5 text-lg font-bold text-navy-900">{solution.title}</h3><p className="mt-2 text-sm leading-relaxed text-navy-600">{solution.desc}</p></div></Reveal>)}</div></div></section>
+    <section className="section-pad bg-navy-50/40"><div className="container-base"><div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]"><Reveal><div className="relative rounded-3xl border border-navy-100 bg-white p-6 shadow-sm sm:p-8"><div className="flex items-center justify-between"><span className="mono-label">Workplace access</span><span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-emerald-600">Connected</span></div><div className="mt-8 flex items-center justify-between gap-2"><div className="flex flex-col items-center gap-2"><span className="flex h-14 w-14 items-center justify-center rounded-xl bg-navy-900 text-blue-400"><Building2 className="h-6 w-6" /></span><span className="text-xs font-semibold text-navy-700">Office</span></div><div className="h-px flex-1 bg-gradient-to-r from-blue-300 to-accent-300" /><div className="flex flex-col items-center gap-2"><span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20"><Cloud className="h-7 w-7" /></span><span className="text-xs font-semibold text-navy-700">Cloud</span></div><div className="h-px flex-1 bg-gradient-to-r from-accent-300 to-blue-300" /><div className="flex flex-col items-center gap-2"><span className="flex h-14 w-14 items-center justify-center rounded-xl bg-navy-50 text-navy-700"><Laptop className="h-6 w-6" /></span><span className="text-xs font-semibold text-navy-700">Remote team</span></div></div></div></Reveal><Reveal delay={100}><span className="eyebrow"><span className="h-1.5 w-1.5 rounded-full bg-current" />Connected teams</span><h2 className="mt-4 text-3xl font-bold text-navy-900 sm:text-4xl">One business workspace, wherever work happens</h2><p className="mt-5 text-navy-600">Give your teams a consistent way to reach the applications and information they rely on without moving the business from place to place.</p></Reveal></div></div></section>
+    <section className="section-pad bg-white"><div className="container-base"><FinalCTA /></div></section>
+  </>;
+}
